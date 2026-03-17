@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaishnavi Sharma — AI Product Owner</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0f14;
+    --bg2: #121620;
+    --bg3: #1a2030;
+    --accent: #c8a96e;
+    --accent2: #e8c98e;
+    --text: #e8eaf0;
+    --muted: #8a90a0;
+    --border: rgba(200,169,110,0.18);
+    --white: #f5f6fa;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(12,15,20,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 48px 80px;
+    gap: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-tagline {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+  .hero-tagline strong { color: var(--text); font-weight: 500; }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #0c0f14;
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+  .hero-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 14px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 16px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .hero-cta-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* right col: stats */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    border: 1px solid var(--border);
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .stat-row:last-child { background: transparent; }
+  .stat {
+    background: var(--bg2);
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 28px;
+    width: 24px; height: 2px;
+    background: var(--accent);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 48px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 48px;
+    max-width: 600px;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg2); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .skill-card {
+    background: var(--bg2);
+    padding: 28px 24px;
+    transition: background 0.2s;
+  }
+  .skill-card:hover { background: var(--bg3); }
+  .skill-card-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .skill-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── CASE STUDIES ── */
+  #work { background: var(--bg); }
+  .case-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .case-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .case-item:hover { border-color: rgba(200,169,110,0.4); }
+
+  .case-header {
+    padding: 40px 48px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 32px;
+    user-select: none;
+  }
+  .case-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .case-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .case-sub { font-size: 14px; color: var(--muted); }
+  .case-toggle {
+    width: 40px; height: 40px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+    font-size: 20px;
+    transition: transform 0.3s, background 0.2s;
+    flex-shrink: 0;
+  }
+  .case-item.open .case-toggle { transform: rotate(45deg); background: rgba(200,169,110,0.1); }
+
+  .case-body {
+    display: none;
+    padding: 0 48px 48px;
+    border-top: 1px solid var(--border);
+  }
+  .case-item.open .case-body { display: block; }
+
+  /* case body layout */
+  .case-snapshot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 40px 0;
+  }
+  .snapshot-cell {
+    background: var(--bg3);
+    padding: 24px;
+  }
+  .snapshot-cell-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .snapshot-cell p { font-size: 14px; color: var(--text); line-height: 1.5; }
+
+  .case-section { margin-top: 40px; }
+  .case-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .case-section p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .case-section p strong { color: var(--text); font-weight: 500; }
+
+  .bullet-list { list-style: none; padding: 0; }
+  .bullet-list li {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    padding: 6px 0 6px 20px;
+    position: relative;
+  }
+  .bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 16px;
+    width: 6px; height: 1px;
+    background: var(--accent);
+  }
+  .bullet-list li strong { color: var(--text); font-weight: 500; }
+
+  .hypothesis-block {
+    border-left: 2px solid var(--accent);
+    padding: 16px 24px;
+    background: rgba(200,169,110,0.05);
+    margin: 20px 0;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* decisions grid */
+  .decisions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+  .decision-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 20px;
+  }
+  .decision-choice {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .decision-rationale {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* flow */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .flow-step {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .flow-arrow {
+    color: var(--accent);
+    font-size: 14px;
+    padding: 0 8px;
+  }
+
+  /* impact metrics */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 16px;
+  }
+  .impact-cell {
+    background: var(--bg3);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .impact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .impact-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* before after */
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 16px;
+  }
+  .ba-col { background: var(--bg3); }
+  .ba-header {
+    padding: 12px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .ba-header.before { color: var(--muted); }
+  .ba-header.after { color: var(--accent); }
+  .ba-row {
+    padding: 12px 20px;
+    font-size: 14px;
+    color: var(--muted);
+    border-bottom: 1px solid rgba(200,169,110,0.06);
+    line-height: 1.5;
+  }
+  .ba-row.after { color: var(--text); }
+
+  /* challenges */
+  .challenges-list { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+  .challenge-item {
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    background: var(--bg3);
+  }
+  .challenge-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .challenge-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* two-col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 16px; }
+
+  /* ── ABOUT / CONTACT ── */
+  #contact { background: var(--bg2); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-bio {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+  .contact-bio strong { color: var(--text); font-weight: 500; }
+  .contact-details { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-item:hover { border-color: var(--accent); background: rgba(200,169,110,0.04); }
+  .contact-item-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+    min-width: 60px;
+  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .cert-item {
+    background: var(--bg2);
+    padding: 20px 24px;
+  }
+  .cert-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .cert-id { font-size: 12px; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in:nth-child(4) { animation-delay: 0.4s; }
+  .fade-in:nth-child(5) { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
+    section { padding: 70px 24px; }
+    .case-header { padding: 28px 24px; }
+    .case-body { padding: 0 24px 32px; }
+    .case-snapshot { grid-template-columns: 1fr; }
+    .decisions-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .before-after { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Vaishnavi Sharma</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Case Studies</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <div class="hero-eyebrow fade-in">AI Product Owner · 5 Years Experience</div>
+    <h1 class="fade-in">Building <em>AI-powered</em> products that scale.</h1>
+    <p class="hero-tagline fade-in">
+      I turn complex workflow and data problems into <strong>measurable business outcomes</strong>
+      using GenAI, automation, and product strategy — across EdTech, Automotive, and Insurance.
+    </p>
+    <div class="fade-in">
+      <a href="#work" class="hero-cta">View Case Studies</a>
+      <a href="mailto:vaishnavisharmavs7@gmail.com" class="hero-cta-ghost">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right fade-in">
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">40%</div>
+        <div class="stat-label">Reduction in manual test artifact creation</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">60%</div>
+        <div class="stat-label">Workflow efficiency improvement via automation</div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">$700K+</div>
+        <div class="stat-label">Annual revenue supported via reporting platform</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">80%</div>
+        <div class="stat-label">Increase in AI-generated artifact consistency</div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-num">25%</div>
+        <div class="stat-label">Sprint velocity improvement</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">95%</div>
+        <div class="stat-label">Business approval in GenAI platform UAT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Expertise</div>
+  <h2 class="section-title">What I bring to the table.</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">Product Strategy</div>
+      <p>Roadmap ownership, OKRs, backlog prioritization using RICE and MoSCoW. 0-to-1 product development and MVP scoping.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">GenAI & AI Products</div>
+      <p>LLMs, RAG pipelines, prompt engineering, vector databases, embedding strategies, human-in-the-loop system design.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Agile Delivery</div>
+      <p>SAFe, Scrum, sprint planning, backlog grooming, stakeholder demos, cross-functional team coordination.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Data & Reporting</div>
+      <p>SQL, Power BI, enterprise reporting platforms, data pipeline design, metrics frameworks and KPI tracking.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Workflow Automation</div>
+      <p>Power Automate, PowerApps, API integrations, Salesforce-to-Jira automation, RPA across enterprise workflows.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Stakeholder Management</div>
+      <p>Collaborating across 50+ stakeholders — Account Managers, Engineering, Clients. Requirement gathering and trade-off facilitation.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Tools</div>
+      <p>JIRA · Confluence · Miro · Power BI · SQL · Power Automate · PowerApps · Salesforce</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Currently Exploring</div>
+      <p>Agentic AI workflows, LangChain, product analytics frameworks, AI-assisted product discovery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="section-label">Case Studies</div>
+  <h2 class="section-title">Products I've owned and shipped.</h2>
+
+  <div class="case-list">
+
+    <!-- CASE 1: GenAI Test Automation -->
+    <div class="case-item" id="case1">
+      <div class="case-header" onclick="toggleCase('case1')">
+        <div>
+          <div class="case-num">01 / Automotive Domain · RNT</div>
+          <div class="case-title">AI Test Automation Platform</div>
+          <div class="case-sub">Automating test artifact creation with Generative AI — from manual 50% time spend to standardised, AI-generated outputs</div>
+        </div>
+        <div class="case-toggle">+</div>
+      </div>
+
+      <div class="case-body">
+
+        <div class="case-snapshot">
+          <div class="snapshot-cell">
+            <div class="snapshot-cell-label">Problem</div>
+            <p>Engineers spent ~50% of their time manually creating test artifacts in Polarion, leading to inconsistency and reduced testing quality</p>
+          </div>
+          <div class="snapshot-cell">
+            <div class="snapshot-cell-label">Solution</div>
+            <p>GenAI-powered platform for automated test artifact generation using LLMs, vector databases, and prompt engineering</p>
+          </div>
+          <div class="snapshot-cell">
+            <div class="snapshot-cell-label">Impact</div>
+            <p>40% reduction in manual effort · 80% improvement in artifact consistency · 100% adoption across Phase 1 teams (India & Germany)</p>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Problem</div>
+          <p>In automotive testing, engineers were required to manually create highly detailed test artifacts in Polarion for every product increment. The process was time-intensive, repetitive, and inconsistent — teams in India and Germany produced artifacts using different approaches, making cross-team reviews difficult.</p>
+          <ul class="bullet-list">
+            <li><strong>Engineers spent 50% of their time on documentation</strong>, leaving limited capacity for actual validation work</li>
+            <li>Artifacts lacked consistency across teams, increasing review cycles and rework</li>
+            <li>Manual process created bottlenecks that slowed down testing pipelines tied to product safety</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Business Context</div>
+          <p>In automotive testing, test artifact quality directly impacts <strong>product safety and reliability</strong>. Poor documentation increases the risk of missed edge cases and reduces the overall reliability of testing outcomes. The business case was clear: reducing documentation overhead would free engineers to focus on validation quality while improving consistency across global teams.</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Strategy & Hypothesis</div>
+          <div class="hypothesis-block">
+            If we use Generative AI to automate test artifact creation, we can reduce manual effort by 40–50% while maintaining or improving quality and consistency — allowing engineers to shift focus from documentation to testing.
+          </div>
+          <p>I validated this hypothesis through structured discovery: interviewed 10 senior test engineers across India and Germany to map the exact pain points, reviewed 3 months of Polarion artifact data to identify high-volume, repeatable artifact types, and confirmed stakeholder appetite for an AI-assisted approach before committing to the MVP scope.</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Key Product Decisions</div>
+          <div class="decisions-grid">
+            <div class="decision-card">
+              <div class="decision-choice">Prioritised GenAI generation over ISO compliance for MVP</div>
+              <div class="decision-rationale">Deferring ISO compliance to Phase 2 allowed us to ship a working POC faster, prove value, and secure funding before investing in compliance infrastructure.</div>
+            </div>
+            <div class="decision-card">
+              <div class="decision-choice">Human-in-the-loop validation required before export</div>
+              <div class="decision-rationale">Given safety-critical context, all AI outputs required engineer review before Polarion export. This built stakeholder trust and reduced adoption risk.</div>
+            </div>
+            <div class="decision-card">
+              <div class="decision-choice">Leveraged historical artifacts as training context via embeddings</div>
+              <div class="decision-rationale">Using existing high-quality artifacts as retrieval context significantly improved output relevance without fine-tuning, reducing time-to-MVP.</div>
+            </div>
+            <div class="decision-card">
+              <div class="decision-choice">Targeted high-volume, repeatable artifact types first</div>
+              <div class="decision-rationale">Focusing on the top 3 most common artifact types (covering ~70% of volume) maximised impact while keeping initial scope manageable.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Solution Architecture</div>
+          <div class="flow">
+            <div class="flow-step">Requirement Ingestion</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Semantic Search (Vector DB)</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">GenAI Generation (LLM)</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Human Review</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Export to Polarion</div>
+          </div>
+          <ul class="bullet-list">
+            <li>Requirement ingestion pipeline with preprocessing and deduplication</li>
+            <li>Semantic recommendations using vector database and embeddings from historical artifacts</li>
+            <li>LLM-based artifact generation with <strong>prompt templates I designed and iterated</strong> across 4 refinement cycles</li>
+            <li>Manual validation and editing interface before Polarion-compatible export</li>
+          </ul>
+          <p style="margin-top:16px"><strong>My specific technical contributions:</strong> I defined the prompting strategy, including template structure, few-shot examples, and temperature settings. I worked directly with engineering to tune the retrieval pipeline, set chunking strategy for embeddings, and define the human review workflow. I also established the AI output quality rubric used in UAT.</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Impact</div>
+          <div class="impact-grid">
+            <div class="impact-cell">
+              <div class="impact-num">40%</div>
+              <div class="impact-desc">Reduction in manual effort</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">80%</div>
+              <div class="impact-desc">Improvement in artifact consistency</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">100%</div>
+              <div class="impact-desc">Adoption, Phase 1 (India & Germany)</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">95%</div>
+              <div class="impact-desc">Business approval in UAT</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">70%</div>
+              <div class="impact-desc">Stakeholders recommended funding</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Before vs After</div>
+          <div class="before-after">
+            <div class="ba-col">
+              <div class="ba-header before">Before</div>
+              <div class="ba-row">~50% engineer time spent on documentation</div>
+              <div class="ba-row">Inconsistent artifact quality across teams</div>
+              <div class="ba-row">Manual, error-prone process</div>
+              <div class="ba-row">Low focus on actual testing quality</div>
+            </div>
+            <div class="ba-col">
+              <div class="ba-header after">After</div>
+              <div class="ba-row after"><strong>40% reduction</strong> in documentation effort</div>
+              <div class="ba-row after"><strong>Standardised outputs</strong> across India & Germany</div>
+              <div class="ba-row after">AI-assisted generation with human validation</div>
+              <div class="ba-row after">Engineers refocused on testing and validation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Challenges & Learnings</div>
+          <div class="challenges-list">
+            <div class="challenge-item">
+              <div class="challenge-title">AI Output Inconsistency</div>
+              <div class="challenge-body">Early outputs were highly variable. I iterated on prompt templates across 4 cycles — adding structured output constraints, adjusting temperature settings, and incorporating few-shot examples from high-quality historical artifacts. This reduced output variance significantly before UAT.</div>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-title">Stakeholder Trust in AI Outputs</div>
+              <div class="challenge-body">Senior engineers were initially skeptical. I ran 6 structured demo sessions using real test scenarios from their own projects, which shifted the conversation from "can AI do this?" to "how do we integrate this into our workflow?"</div>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-title">Data Quality Issues</div>
+              <div class="challenge-body">Historical artifacts varied significantly in quality. I worked with 3 senior test engineers to manually curate a high-quality dataset for embedding context, which measurably improved retrieval relevance.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Future Roadmap</div>
+          <ul class="bullet-list">
+            <li>Quality guardrails: restrict artifact finalisation to senior engineers for safety-critical types</li>
+            <li>ISO compliance integration for Phase 2 enterprise rollout</li>
+            <li>Continuous feedback loop to improve AI confidence from engineer corrections</li>
+            <li>Expansion to additional artifact types covering remaining 30% of volume</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CASE 2: CPR Reporting -->
+    <div class="case-item" id="case2">
+      <div class="case-header" onclick="toggleCase('case2')">
+        <div>
+          <div class="case-num">02 / EdTech · HMH</div>
+          <div class="case-title">Custom & Premium Reporting Platform</div>
+          <div class="case-sub">Scaling enterprise reporting through workflow automation — from 3–4 week turnaround to ~1 week, supporting $700K+ in annual revenue</div>
+        </div>
+        <div class="case-toggle">+</div>
+      </div>
+
+      <div class="case-body">
+
+        <div class="case-snapshot">
+          <div class="snapshot-cell">
+            <div class="snapshot-cell-label">Problem</div>
+            <p>Report delivery took 3–4 weeks due to fully manual SQL + Excel workflows, creating client retention risk on a $700K+ revenue line</p>
+          </div>
+          <div class="snapshot-cell">
+            <div class="snapshot-cell-label">Solution</div>
+            <p>Automated intake and reporting workflow via Salesforce-to-Jira pipeline, standardised report templates, and automated coordination across teams</p>
+          </div>
+          <div class="snapshot-cell">
+            <div class="snapshot-cell-label">Impact</div>
+            <p>60% reduction in manual effort · Delivery time reduced from 3–4 weeks to ~1 week · 15% YoY increase in partner demand</p>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Problem</div>
+          <p>HMH's Custom & Premium Reports (CPR) product delivered critical student and institutional performance data to US educational districts and state partners. Despite being tied to $700K+ in annual revenue, the entire reporting process was manual from end to end.</p>
+          <ul class="bullet-list">
+            <li>Reports built using <strong>manual SQL queries and Excel workflows</strong>, recreated from scratch for each request</li>
+            <li>Delivery timelines of <strong>3–4 weeks per request</strong>, causing client dissatisfaction and escalations</li>
+            <li>No standardised intake process — requests arrived through emails, calls, and ad-hoc Slack messages</li>
+            <li>Teams spent the majority of capacity on execution, with no bandwidth for product improvement or new capabilities</li>
+          </ul>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Business Context</div>
+          <p>The CPR product contributed <strong>$700K+ annually</strong>, with approximately 80% of education partners relying on these reports for data-driven academic decisions. Slow delivery was creating active client retention risk — several Account Managers flagged that partners were exploring alternative data solutions. The business case for automation was both a revenue protection and a growth play.</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Discovery & Validation</div>
+          <p>Before defining the solution, I conducted structured discovery to understand where time was actually being lost. I ran <strong>15 requirement-gathering sessions</strong> with Account Managers, mapped the end-to-end reporting workflow across 8 report types, and analysed 3 months of ticket history to identify the highest-volume, most repeatable report categories. This surfaced two key findings: 70% of requests were variations of 4 core report types, and the intake and coordination phases were consuming 40% of total delivery time — more than the actual report-building step.</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Strategy & Hypothesis</div>
+          <div class="hypothesis-block">
+            If we automate the intake, routing, and generation of repeatable report types, we can reduce turnaround time by 60–70% and free up team capacity for higher-value customisation work — without rebuilding the entire reporting infrastructure.
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Key Product Decisions</div>
+          <div class="decisions-grid">
+            <div class="decision-card">
+              <div class="decision-choice">Automate repeatable report types first, not everything</div>
+              <div class="decision-rationale">Rather than attempting a full system rebuild, focusing on the top 4 report types (70% of volume) delivered measurable impact in weeks, not months.</div>
+            </div>
+            <div class="decision-card">
+              <div class="decision-choice">Standardise intake via Salesforce rather than building a new tool</div>
+              <div class="decision-rationale">Account Managers already lived in Salesforce. Standardising requests there eliminated the coordination overhead of chasing requests across channels.</div>
+            </div>
+            <div class="decision-card">
+              <div class="decision-choice">Process optimisation over headcount increase</div>
+              <div class="decision-rationale">Leadership initially considered hiring 2 additional analysts. Automation delivered equivalent capacity increase at lower ongoing cost, with greater scalability.</div>
+            </div>
+            <div class="decision-card">
+              <div class="decision-choice">Automated Jira ticket creation to enforce SLAs</div>
+              <div class="decision-rationale">Auto-creating structured tickets with metadata enforced routing logic and created visibility into pipeline status for AMs without manual updates.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Solution Architecture</div>
+          <div class="flow">
+            <div class="flow-step">Salesforce Request</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Automated Intake Validation</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Jira Ticket Auto-Creation</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Report Generation</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">Delivery</div>
+          </div>
+          <ul class="bullet-list">
+            <li>Standardised Salesforce intake form with required fields, validation rules, and report-type classification</li>
+            <li>Automated Jira ticket creation with pre-populated metadata and SLA timestamps</li>
+            <li>Automated routing logic to assign tickets based on report type and team capacity</li>
+            <li>Reduced dependency on manual SQL for the top 4 report categories via templated generation</li>
+          </ul>
+          <p style="margin-top:16px"><strong>My specific contributions:</strong> I defined the intake form fields and validation logic, designed the Salesforce-to-Jira field mapping, wrote the acceptance criteria for the automation pipeline, and ran 3 rounds of UAT with Account Managers before rollout. I also defined the SLA framework and escalation triggers built into the Jira workflow.</p>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Impact</div>
+          <div class="impact-grid">
+            <div class="impact-cell">
+              <div class="impact-num">60%</div>
+              <div class="impact-desc">Reduction in manual effort</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">~1 wk</div>
+              <div class="impact-desc">Delivery turnaround (from 3–4 weeks)</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">100%</div>
+              <div class="impact-desc">Adoption by Account Managers</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">$700K+</div>
+              <div class="impact-desc">Annual revenue stream supported</div>
+            </div>
+            <div class="impact-cell">
+              <div class="impact-num">+15%</div>
+              <div class="impact-desc">Partner demand growth YoY</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Before vs After</div>
+          <div class="before-after">
+            <div class="ba-col">
+              <div class="ba-header before">Before</div>
+              <div class="ba-row">3–4 weeks delivery time per report</div>
+              <div class="ba-row">Fully manual SQL + Excel workflows</div>
+              <div class="ba-row">Requests via email, Slack, calls — no standard intake</div>
+              <div class="ba-row">Limited scalability for growing demand</div>
+            </div>
+            <div class="ba-col">
+              <div class="ba-header after">After</div>
+              <div class="ba-row after"><strong>~1 week turnaround</strong> for standard report types</div>
+              <div class="ba-row after"><strong>60% of workflows automated</strong> end-to-end</div>
+              <div class="ba-row after">Standardised intake via Salesforce, zero coordination chaos</div>
+              <div class="ba-row after"><strong>+15% YoY demand growth</strong> accommodated without headcount increase</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Challenges & Learnings</div>
+          <div class="challenges-list">
+            <div class="challenge-item">
+              <div class="challenge-title">High Customisation Demand</div>
+              <div class="challenge-body">Every Account Manager believed their request was unique. Through data analysis, I demonstrated that 70% of "custom" requests were actually variants of 4 core templates. Setting clear boundaries between standard and truly custom requests was the most important stakeholder alignment conversation of the project.</div>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-title">Manual Process Dependency and Change Resistance</div>
+              <div class="challenge-body">Some team members were comfortable with the existing workflow. I ran phased rollouts — starting with 3 pilot AMs, collecting feedback, and using early wins to build internal advocates before full rollout. This reduced resistance significantly.</div>
+            </div>
+            <div class="challenge-item">
+              <div class="challenge-title">Intake Standardisation Across 50+ Stakeholders</div>
+              <div class="challenge-body">Aligning 50+ Account Managers to use a new intake process required more than a training session. I created a concise reference guide, embedded the new process into their existing Salesforce workflow rather than asking them to context-switch, and monitored adoption weekly for the first month.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-section">
+          <div class="case-section-title">Future Roadmap</div>
+          <ul class="bullet-list">
+            <li>AI assistant for Account Managers to pre-fill intake forms using natural language</li>
+            <li>Self-service reporting capabilities for standard report types, reducing engineering dependency entirely</li>
+            <li>Structured request validation to further reduce back-and-forth on incomplete submissions</li>
+            <li>Analytics dashboard for leadership to track pipeline health and SLA adherence in real time</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT / ABOUT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Open to the right opportunity.</h2>
+
+  <div class="contact-grid">
+    <div>
+      <p class="contact-bio">
+        I'm a Product Owner with <strong>5 years of hands-on experience</strong> building GenAI-driven, data-intensive, and automation-led products. I've shipped a 0-to-1 GenAI platform in the automotive space, scaled a $700K+ enterprise reporting product in EdTech, and led automation across insurance workflows.<br><br>
+        I'm actively exploring <strong>Product Owner and Product Manager roles</strong> at GCCs, SaaS companies, and product-first teams — particularly those building AI or data products. I bring a rare combination of technical GenAI depth and business-outcome orientation.<br><br>
+        Based in Pune, India. Open to hybrid and remote roles.
+      </p>
+      <div style="margin-top: 40px;">
+        <div class="section-label">Certifications</div>
+        <div class="cert-grid">
+          <div class="cert-item">
+            <div class="cert-name">SAFe Product Owner / Product Manager</div>
+            <div class="cert-id">ID: 85180491-3115</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Certified Scrum Product Owner (CSPO)</div>
+            <div class="cert-id">ID: 001690560</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Certified Scrum Master (CSM)</div>
+            <div class="cert-id">Active through Sep 2026</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-name">Python Programming Certification</div>
+            <div class="cert-id">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-details">
+      <a href="mailto:vaishnavisharmavs7@gmail.com" class="contact-item">
+        <span class="contact-item-label">Email</span>
+        <span>vaishnavisharmavs7@gmail.com</span>
+      </a>
+      <a href="https://linkedin.com/in/vaishnavi-sharma-423052196" target="_blank" class="contact-item">
+        <span class="contact-item-label">LinkedIn</span>
+        <span>linkedin.com/in/vaishnavi-sharma-423052196</span>
+      </a>
+      <a href="tel:+918668567554" class="contact-item">
+        <span class="contact-item-label">Phone</span>
+        <span>+91 8668567554</span>
+      </a>
+      <div class="contact-item" style="cursor:default;">
+        <span class="contact-item-label">Location</span>
+        <span>Pune, India — Open to Remote / Hybrid</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Vaishnavi Sharma · AI Product Owner</span>
+  <span>vaishnavisharmavs7@gmail.com · Pune, India</span>
+</footer>
+
+<script>
+  function toggleCase(id) {
+    const item = document.getElementById(id);
+    item.classList.toggle('open');
+  }
+
+  // Scroll-triggered fade-in for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.skill-card, .case-item, .cert-item, .contact-item, .stat').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
